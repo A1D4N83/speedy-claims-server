@@ -17,4 +17,9 @@ public class ClaimantServiceImpl implements ClaimantService {
     public List<Claimant> getAll() {
         return claimantRepository.findAll();
     }
+
+    @Override
+    public Claimant add(Claimant newClaim) {
+        return claimantRepository.save(newClaim);
+    }
 }

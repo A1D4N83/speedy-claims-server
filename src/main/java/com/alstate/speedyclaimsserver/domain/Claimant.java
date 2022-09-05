@@ -12,7 +12,7 @@ public class Claimant {
     Integer claim_id;
 
     @Column(name="policy_number")
-    String PolNum;
+    String polNum;
 
     String title;
     String firstname;
@@ -31,12 +31,26 @@ public class Claimant {
     @Column(name="claim_reason")
     String claimReason;
 
+    String make;
+    String model;
+    String year;
+    String address;
+    @Column(name="animal_type")
+    String animalType;
+    String breed;
+
+    @Column(name="incident_date")
+    String incidentDate;
+    @Column(name="further_details")
+    String furtherDetails;
+
+
     public Claimant() {
     }
 
-    public Claimant(Integer claim_id, String polNum, String title, String firstname, String surname, String status, String claimType, Double claimAmount, LocalDate claimDate, String claimReason) {
+    public Claimant(Integer claim_id, String polNum, String title, String firstname, String surname, String status, String claimType, Double claimAmount, LocalDate claimDate, String claimReason, String make, String model, String year, String address, String animalType, String breed, String incidentDate, String furtherDetails) {
         this.claim_id = claim_id;
-        PolNum = polNum;
+        this.polNum = polNum;
         this.title = title;
         this.firstname = firstname;
         this.surname = surname;
@@ -45,6 +59,14 @@ public class Claimant {
         this.claimAmount = claimAmount;
         this.claimDate = claimDate;
         this.claimReason = claimReason;
+        this.make = make;
+        this.model = model;
+        this.year = year;
+        this.address = address;
+        this.animalType = animalType;
+        this.breed = breed;
+        this.incidentDate = incidentDate;
+        this.furtherDetails = furtherDetails;
     }
 
     public Integer getClaim_id() {
@@ -56,11 +78,11 @@ public class Claimant {
     }
 
     public String getPolNum() {
-        return PolNum;
+        return polNum;
     }
 
     public void setPolNum(String polNum) {
-        PolNum = polNum;
+        this.polNum = polNum;
     }
 
     public String getTitle() {
@@ -125,5 +147,69 @@ public class Claimant {
 
     public void setClaimReason(String claimReason) {
         this.claimReason = claimReason;
+    }
+
+    public String getMake() {
+        return make;
+    }
+
+    public void setMake(String make) {
+        this.make = make;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getAnimalType() {
+        return animalType;
+    }
+
+    public void setAnimalType(String animalType) {
+        this.animalType = animalType;
+    }
+
+    public String getBreed() {
+        return breed;
+    }
+
+    public void setBreed(String breed) {
+        this.breed = breed;
+    }
+
+    public String getIncidentDate() {
+        return incidentDate;
+    }
+
+    public void setIncidentDate(String incidentDate) {
+        this.incidentDate = incidentDate;
+    }
+
+    public String getFurtherDetails() {
+        return furtherDetails;
+    }
+
+    public void setFurtherDetails(String furtherDetails) {
+        this.furtherDetails = furtherDetails;
     }
 }
