@@ -2,6 +2,7 @@ package com.alstate.speedyclaimsserver.domain;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Entity
 @Table(name="claimant")
@@ -44,11 +45,14 @@ public class Claimant {
     @Column(name="further_details")
     String furtherDetails;
 
+    @Column(name="amount_to_be_paid")
+    Double amountToBePaid;
+
 
     public Claimant() {
     }
 
-    public Claimant(Integer claim_id, String polNum, String title, String firstname, String surname, String status, String claimType, Double claimAmount, LocalDate claimDate, String claimReason, String make, String model, String year, String address, String animalType, String breed, String incidentDate, String furtherDetails) {
+    public Claimant(Integer claim_id, String polNum, String title, String firstname, String surname, String status, String claimType, Double claimAmount, LocalDate claimDate, String claimReason, String make, String model, String year, String address, String animalType, String breed, String incidentDate, String furtherDetails, Double amountToBePaid) {
         this.claim_id = claim_id;
         this.polNum = polNum;
         this.title = title;
@@ -67,6 +71,7 @@ public class Claimant {
         this.breed = breed;
         this.incidentDate = incidentDate;
         this.furtherDetails = furtherDetails;
+        this.amountToBePaid = amountToBePaid;
     }
 
     public Integer getClaim_id() {
@@ -211,5 +216,26 @@ public class Claimant {
 
     public void setFurtherDetails(String furtherDetails) {
         this.furtherDetails = furtherDetails;
+    }
+
+    public Double getAmountToBePaid() {
+        return amountToBePaid;
+    }
+
+    public void setAmountToBePaid(Double amountToBePaid) {
+        this.amountToBePaid = amountToBePaid;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Claimant claimant = (Claimant) o;
+        return Objects.equals(claim_id, claimant.claim_id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(claim_id);
     }
 }
